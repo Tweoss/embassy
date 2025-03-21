@@ -77,7 +77,8 @@ nrf52811 = ["nrf-pac/nrf52811", "_nrf52"]
 ## nRF52820
 nrf52820 = ["nrf-pac/nrf52820", "_nrf52"]
 ## nRF52832
-nrf52832 = ["nrf-pac/nrf52832", "_nrf52", "_nrf52832_anomaly_109"]
+nrf52832 = ["nrf-pac/nrf52832", "_nrf52"]
+# nrf52832 = ["nrf-pac/nrf52832", "_nrf52", "_nrf52832_anomaly_109"]
 ## nRF52833
 nrf52833 = ["nrf-pac/nrf52833", "_nrf52", "_gpio-p1"]
 ## nRF52840

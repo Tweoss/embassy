@@ -271,12 +271,12 @@ impl<'d, T: Instance> Spim<'d, T> {
             s.rx.store(rx_len as _, Ordering::Relaxed);
 
             // ...signalling the start of the fake transfer.
-            r.intenset().write(|w| w.set_started(true));
+            // r.intenset().write(|w| w.set_started(false));
         }
 
         // Reset and enable the event
         r.events_end().write_value(0);
-        r.intenset().write(|w| w.set_end(true));
+        // r.intenset().write(|w| w.set_end(false));
 
         // Start SPI transaction.
         r.tasks_start().write_value(1);
@@ -454,7 +454,7 @@ impl<'d, T: Instance> Spim<'d, T> {
             r.rxd().maxcnt().write(|w| w.set_maxcnt(s.rx.load(Ordering::Relaxed)));
             r.txd().maxcnt().write(|w| w.set_maxcnt(s.tx.load(Ordering::Relaxed)));
 
-            r.intenset().write(|w| w.set_end(true));
+            // r.intenset().write(|w| w.set_end(true));
             // ... and start actual, hopefully glitch-free transmission
             r.tasks_start().write_value(1);
             return Poll::Ready(());
