@@ -11,8 +11,6 @@ use critical_section::CriticalSection;
 macro_rules! interrupt_mod {
     ($($irqs:ident),* $(,)?) => {
         #[cfg(feature = "rt")]
-        pub use cortex_m_rt::interrupt;
-
         /// Interrupt definitions.
         pub mod interrupt {
             pub use $crate::interrupt::{InterruptExt, Priority};

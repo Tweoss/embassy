@@ -29,7 +29,8 @@ rustdoc-args = ["--cfg", "docsrs"]
 [features]
 default = ["rt"]
 ## Cortex-M runtime (enabled by default)
-rt = ["nrf-pac/rt"]
+rt = []
+# rt = ["nrf-pac/rt"]
 
 ## Enable features requiring `embassy-time`
 time = ["dep:embassy-time", "embassy-embedded-hal/time"]
@@ -151,12 +152,12 @@ embedded-hal-async = { version = "1.0" }
 embedded-io = { version = "0.6.0" }
 embedded-io-async = { version = "0.6.1" }
 
-nrf-pac = "0.1.0"
+nrf-pac = { path = "../../nrf-pac", default-features = false }
+# nrf-pac = { version = "0.1.0", default-features = false }
 
 defmt = { version = "0.3", optional = true }
 bitflags = "2.4.2"
 log = { version = "0.4.14", optional = true }
-cortex-m-rt = ">=0.6.15,<0.8"
 cortex-m = "0.7.6"
 critical-section = "1.1"
 rand_core = "0.6.3"
